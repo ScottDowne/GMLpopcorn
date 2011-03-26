@@ -3,6 +3,8 @@ String app_name = "";
 int index = 0;
 var doneSetup = false;
 var data_object = {};
+var options = {};
+var video = document.getElementById( "video" );
   
 // Setup the Processing Canvas  
 void setup(){  
@@ -10,10 +12,11 @@ void setup(){
 		  frameRate(30); 
       background(0); 
       noLoop(); 
-}  
+}
 
-void manSetup( app_nameNew, indexNew ){
-      //console.log( app_nameNew );
+void manSetup( app_nameNew, indexNew, optionsIncoming ){
+      options = optionsIncoming;
+console.log(options.start);
       app_name = app_nameNew;
       index = indexNew;
 		  if(app_name == 'Graffiti Analysis 2.0: DustTag' || app_name == 'DustTag: Graffiti Analysis 2.0' || app_name == 'Fat Tag - Katsu Edition'){ 

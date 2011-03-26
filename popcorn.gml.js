@@ -46,7 +46,9 @@
           return;
         }
         clearInterval(readyCheck);
-        Popcorn.getScript( "http://000000book.com/data/" + options.gmltag + ".json?callback=load_gml" );
+        Popcorn.getJSONP( "http://000000book.com/data/" + options.gmltag + ".json?callback=", function( data ) {
+          load_gml( data, options );
+        }, false );
 
         /*self.video.addEventListener( "pause", function() {
           Processing.getInstanceById( 'canvas' + options.gmltag ).noLoop();

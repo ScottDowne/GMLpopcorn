@@ -40,7 +40,7 @@ var unique = 0;
 
 // *************** Callback Method ************
 // ********************************************
-function load_gml(data) 
+function load_gml(data, options) 
 {
   // TODO handle both arrays and individual items...
   // e.g. both /data.json?location=... and /data/145.json
@@ -97,7 +97,7 @@ function load_gml(data)
 
 		// draw sketch on canvas
 		new Processing(canvas, sketch);
-    Processing.getInstanceById( 'canvas' + data.id ).manSetup( app_name, i );
+    Processing.getInstanceById( 'canvas' + data.id ).manSetup( app_name, i, options );
         
 	}
 	else
