@@ -3,8 +3,13 @@ float radius = 50.0;
 int X, Y;  
 int nX, nY;  
 int delay = 16;  
+int color = 255;
   
 // Setup the Processing Canvas  
+
+
+ArrayList points;  
+
 void setup(){  
   size( 200, 200 );  
   strokeWeight( 10 );  
@@ -13,28 +18,32 @@ void setup(){
   Y = height / 2;  
   nX = X;  
   nY = Y;    
+	points = new ArrayList();
 }  
+
+void setColor(int col){
+	color = col;
+	
+}
+
+void addPoint(int x, int y) {  
+  Point pt = new Point(x,y);  
+  points.add(pt);  
+ // return pt;   
+ }
   
 // Main draw loop  
 void draw(){  
-    
-  radius = radius + sin( frameCount / 4 );  
-    
-  // Track circle to new destination  
-  X+=(nX-X)/delay;  
-  Y+=(nY-Y)/delay;  
-    
+       
   // Fill canvas grey  
-  background( 100 );  
+  background( color );  
     
-  // Set fill-color to blue  
-  fill( 0, 121, 184 );  
-    
-  // Set stroke-color white  
-  stroke(255);   
-    
-  // Draw circle  
-  ellipse( X, Y, radius, radius );                    
+  for(int p=0, end=points.size(); p<end; p++) {  
+    Point pt = (Point) points.get(p);  
+    if(p<end-1) {  
+      Point next = (Point) points.get(p+1);  
+      line(pt.x,pt.y,next.x,next.y); }  
+    pt.draw(); }                 
 }  
   
   
@@ -44,44 +53,13 @@ void mouseMoved(){
   nY = mouseY;    
 } 
 
-/*    void setup() {
-		  size(600, 500); 
-		  frameRate(30); 
-      background(0); 
-      noLoop(); 
-    };
-		void manSetup( app_name, index ) { 
-		  if(app_name === 'Graffiti Analysis 2.0: DustTag' || app_name === 'DustTag: Graffiti Analysis 2.0' || app_name === 'Fat Tag - Katsu Edition'){ 
-  			rotation = 80; 
-  			translation = [0, 500]; 
-		  } else { 
-			  rotation = 0; 
-			  translation = [0, 0]; 
-			} 
-      pts + index + = pts; 
-      pts_opts + index +  = pts_opts; 
-      strokeCount+index+ = 0; 
-		}; 
-		void draw() { 
-		  i = frameCount % pts+index+.length; 
-		  prev = pts+index+[i-1]; 
-		  pt = pts+index+[i]; 
-      if(i == 0){ background(0); } 
-		  if(pt == undefined || pt == []){ 
-  			strokeCount+i)++; 
-  			return; 
-		  } 
-		  if(prev == undefined || prev == []){ 
-  			prev = pt; 
-		  } 
-		  dimx = (prev.x -pt.x)*width; 
-		  dimy = (prev.y -pt.y)*height; 
-  		hyp = 1/(sqrt(pow(dimx,2),pow(dimy,2)) + 20); 
-		  translate(translation[0], translation[1]); 
-		  rotate(rotation); 
-		  num = (pow(hyp,0.5)*90); 
-  		strokeWeight(num); 
-      var colors = ['255','255','255']; 
-		  stroke(colors[0],colors[1],colors[2]); 
-		  line(prev.x*width, prev.y*height, pt.x*width, pt.y*height); 
-		};*/
+
+class Point {
+	  int x,y;
+	  Point(int x, int y) { this.x=x; this.y=y; }
+	  void draw() {
+	    stroke(255,0,0);
+	    fill(255);
+	    ellipse(x,y,10,10); 
+    }
+}
