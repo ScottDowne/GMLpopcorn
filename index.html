@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<meta charset="utf-8">
+  	<title>GML + Popcorn.js</title>
+ 	 <link href="style.css" rel="stylesheet" type="text/css" />
+ 	 <!--<script src="video.js" type="text/javascript" charset="utf-8"></script>-->
+ 	 <script src="popcorn.js" type="text/javascript" charset="utf-8"></script>
+
+         <script src="popcorn.gml.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var p = Popcorn('#video')
+      .volume(0)
+      .play() 
+      .gml({
+        start: 2, // seconds
+        end: 15, // seconds
+        gmltag: '29582',
+        target: 'gmldiv'
+      })
+      .gml({
+        start: 5, // seconds
+        end: 17, // seconds
+        gmltag: '148',
+        target: 'gmldiv'
+      })
+      .gml({
+        start: 5, // seconds
+        end: 17, // seconds
+        gmltag: '29574',
+        target: 'gmldiv'
+      })
+      .gml({
+        start: 5, // seconds
+        end: 17, // seconds
+        gmltag: '29573',
+        target: 'gmldiv'
+      })
+      .gml({
+        start: 5, // seconds
+        end: 17, // seconds
+        gmltag: '94',
+        target: 'gmldiv'
+      })
+      .gml({
+        start: 5, // seconds
+        end: 17, // seconds
+        gmltag: '29578',
+        target: 'gmldiv'
+      })
+      .gml({
+        start: 5, // seconds
+        end: 17, // seconds
+        gmltag: '29576',
+        target: 'gmldiv'
+      })
+      .gml({
+        start: 5, // seconds
+        end: 17, // seconds
+        gmltag: '29575',
+        target: 'gmldiv'
+      })
+      .gml({
+        start: 5, // seconds
+        end: 17, // seconds
+        gmltag: '29581',
+        target: 'gmldiv'
+      })
+      .gml({
+        start: 5, // seconds
+        end: 17, // seconds
+        gmltag: '29575',
+        target: 'gmldiv'
+      })
+      .gml({
+        start: 5, // seconds
+        end: 17, // seconds
+        gmltag: '94',
+        target: 'gmldiv'
+      })
+      .gml({
+        start: 5, // seconds
+        end: 17, // seconds
+        gmltag: '29580',
+        target: 'gmldiv'
+      })
+      .gml({
+        start: 5, // seconds
+        end: 17, // seconds
+        gmltag: '148',
+        target: 'gmldiv'
+      })
+      .gml({
+        start: 5, // seconds
+        end: 17, // seconds
+        gmltag: '21377',
+        target: 'gmldiv'
+      })
+      .gml({
+        start: 5, // seconds
+        end: 17, // seconds
+        gmltag: '29579',
+        target: 'gmldiv'
+      })
+      .gml({
+        start: 5, // seconds
+        end: 17, // seconds
+        gmltag: '29020',
+        target: 'gmldiv'
+      })
+      .gml({
+        start: 5, // seconds
+        end: 17, // seconds
+        gmltag: '29019',
+        target: 'gmldiv'
+      });
+
+    }, false);
+
+  </script>
+<!--
+0:36 - 000000book.com/ data/ 29582
+0:50 - 000000book.com/ data/ 148
+0:59 - 000000book.com/ data/ 29574
+1:59 - 000000book.com/ data/ 29573
+2:19 - 000000book.com/ data/ 94/ 
+5:01 - 000000book.com/ data/ 29578
+5:04 - 000000book.com/ data/ 29576
+8:53 - 000000book.com/ data/ 29575
+10:24 - 000000book.com/ data/ 29581
+10:48 - 000000book.com/ data/ 29575
+12:41 - 000000book.com/ data/ 94/ 
+13:01 - 000000book.com/ data/ 29580
+13:22 - 000000book.com/ data/ 148
+13:40 - 000000book.com/ data/ 21377
+14:12 - 000000book.com/ data/ 29579
+14:35 - 000000book.com/ data/ 29020
+15:04 - 000000book.com/ data/ 29019
+-->
+
+
+
+</head>
+
+  <body>
+  
+  <section id="wrapper">
+      <header>
+
+      <div id="title"><a href="http://www.rebelliouspixels.com">Rebellious Pixels</a></div>
+      
+      <div id="about">
+      	<div id="text">This <abbr>HTML</abbr>5 video demo utilizes the <a href="http://popcornjs.org">Popcorn.js</a> framework to  dynamically display source data annotations as the remix plays. <a href="#">Red text</a> links to sources.</div>
+
+      
+      	<div id="logo">
+
+      	<img src="images/HTML5_Badge_32.png" alt="html5logo" class="icons"></div> 
+      </div>
+      
+      </header>
+
+<!-- Start Left Column -->
+  <div id="leftcontent">
+    <article id="videobox">
+
+
+    <video id="video" width="540" height="360" controls="controls" preload="auto">
+
+      <source src="42296985.webm">
+      <source src="42296985.theora.ogv" type='video/ogg; codecs="theora, vorbis"' />
+      
+    </video>  
+
+        
+        </article>
+
+      <aside id="sources">
+
+                  <img src="images/logo_notes.png" alt="footnotes">
+                  <img src="images/notes.png" alt="notes" class="icons">
+                  <div class="content" id="footnote"><div class="overlay"></div><div class="inactive"></div></div>
+       </aside>
+				        
+  </div>
+     <!-- Start Right Column -->
+     
+   <div id="rightcontent">
+
+        
+      
+        <!--<aside id="sources">
+                  <img src="images/logo_video.png" alt="video">
+
+                  <img src="images/video.png" alt="video" class="icons">
+                  <div class="content" id="videoattribution">
+                    <div class="overlay">
+                   </div>
+                     <div class="inactive">
+                   </div></div>
+
+       </aside>
+				        
+	    <aside id="sources">
+                  <img src="images/logo_audio.png" alt="audio">
+
+                  <img src="images/audio.png" alt="audio" class="icons">
+                  <div class="content" id="audioattribution"><div class="overlay"></div><div class="inactive"></div></div>
+
+		</aside>-->
+				        
+	   <aside id="sources">
+                  <img src="images/logo_wiki2.png" alt="Wikipedia">
+
+                  <img src="images/wikipedia.png" alt="wikipedia" class="icons">
+                  <div class="content" id="gmldiv"><div class="overlay"></div><div class="inactive"></div></div>
+
+	 </aside>
+
+				        
+   </div>
+ <footer><a href="http://www.rebelliouspixels.com/2010/right-wing-radio-duck-donald-discovers-glenn-beck">Donald Duck Meets Glenn Beck</a> is a fair use remix created by <a href="http://www.rebelliouspixels.com/about-jonathan-mcintosh">Jonathan McIntosh</a>. Please leave comments, ask questions or download demo files <a href="http://www.rebelliouspixels.com/2011/html5-dynamic-video-remix-using-popcornjs">on my blog<a/>.</footer>
+
+</section>
+        
+      
+  </body>
+</html>
+
+
+
