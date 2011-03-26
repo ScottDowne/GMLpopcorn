@@ -50,7 +50,7 @@ h2 {
 }
 
 #wrapper {
-    width: 895px;
+    width: 1095px;
     margin: 0 auto;
 }
 
@@ -108,12 +108,12 @@ h2 {
   clear: both;
   margin-bottom: 5px;
   float: left;
-  width: 540px;
+  width: 600px;
 }
 
 #rightcontent {
   float: right;
-  width: 340px;
+  width: 620px;
 }
 
 #videoattribution {
