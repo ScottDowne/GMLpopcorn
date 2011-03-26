@@ -58,12 +58,14 @@ function load_gml(data)
 		pts_opts = []; 
 		strokes = (data.gml.tag.drawing.stroke instanceof Array ? data.gml.tag.drawing.stroke : [data.gml.tag.drawing.stroke]); 
 		for(j in strokes){ 
-			pts 		= pts.concat(strokes[j].pt); 
-			pts_opts 	= pts_opts.concat({
-			  stroke: (strokes[j].stroke_size || 8), 
-			  color: (strokes[j].color ? hex2rgb2(strokes[j].color) : '255,255,255'), 
-			  drips: (strokes[j].dripping || false)
-			}); 	
+      if (strokes[j]) {
+			  pts 		= pts.concat(strokes[j].pt); 
+			  pts_opts 	= pts_opts.concat({
+			    stroke: (strokes[j].stroke_size || 8), 
+			    color: (strokes[j].color ? hex2rgb2(strokes[j].color) : '255,255,255'), 
+			    drips: (strokes[j].dripping || false)
+			  });
+      }	
 			pts.push(undefined); // blank obj to indicate new stroke
 		}
 
