@@ -18,6 +18,16 @@ __          __   _                          _
 
 function cutHex(h){ return (h.charAt(0)=="#") ? h.substring(1,7) : h; }
 
+var ajax = function ajax(url) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", url, false);
+    xhr.setRequestHeader("If-Modified-Since", "Fri, 1 Jan 1960 00:00:00 GMT");
+    xhr.send(null);
+    // failed request?
+    if (xhr.status !== 200 && xhr.status !== 0) { throw ("XMLHttpRequest failed, status code " + xhr.status); }
+    return xhr.responseText;
+};
+
 function hex2rgb2(hexcolor)
 {
   R = parseInt((cutHex(hexcolor)).substring(0,2),16);
@@ -30,7 +40,7 @@ var unique = 0;
 
 // *************** Callback Method ************
 // ********************************************
-function load_gml(data) 
+function load_gml(data, options) 
 {
   // TODO handle both arrays and individual items...
   // e.g. both /data.json?location=... and /data/145.json
@@ -79,46 +89,7 @@ function load_gml(data)
 
     var app_name = data.gml.tag.header  &&  data.gml.tag.header.client  &&  data.gml.tag.header.client.name;
 
-		document.getElementById('sketch'+i).innerHTML = " \
-		void setup() { \
-		  size(600, 500); \
-		  frameRate(30); \
-      background(0); \
-      noLoop(); \
-		  if('"+app_name+"' == 'Graffiti Analysis 2.0: DustTag' || '"+app_name+"' == 'DustTag: Graffiti Analysis 2.0' || '"+app_name+"' == 'Fat Tag - Katsu Edition'){ \
-  			rotation = 80; \
-  			translation = [0, 500]; \
-		  } else { \
-			  rotation = 0; \
-			  translation = [0, 0]; \
-			} \
-      pts" + i + " = pts; \
-      pts_opts" + i + " = pts_opts; \
-      strokeCount"+i+" = 0; \
-		}; \
-		void draw() { \
-		  i = frameCount % pts"+i+".length; \
-		  prev = pts"+i+"[i-1]; \
-		  pt = pts"+i+"[i]; \
-      if(i == 0){ background(0); } \
-		  if(pt == undefined || pt == []){ \
-  			strokeCount"+i+"++; \
-  			return; \
-		  } \
-		  if(prev == undefined || prev == []){ \
-  			prev = pt; \
-		  } \
-		  dimx = (prev.x -pt.x)*width; \
-		  dimy = (prev.y -pt.y)*height; \
-  		hyp = 1/(sqrt(pow(dimx,2),pow(dimy,2)) + 20); \
-		  translate(translation[0], translation[1]); \
-		  rotate(rotation); \
-		  num = (pow(hyp,0.5)*90); \
-  		strokeWeight(num); \
-      var colors = ['255','255','255']; \
-		  stroke(colors[0],colors[1],colors[2]); \
-		  line(prev.x*width, prev.y*height, pt.x*width, pt.y*height); \
-		}";
+		document.getElementById('sketch'+i).innerHTML = ajax("gmlplayer.js");
 		
 		//var canvas 	= document.getElementById('canvas' + i); // single canvas for every tag
 		var canvas 	= document.getElementById( 'canvas' + data.id ); // one canvas for all tags
@@ -126,6 +97,7 @@ function load_gml(data)
 
 		// draw sketch on canvas
 		new Processing(canvas, sketch);
+    Processing.getInstanceById( 'canvas' + data.id ).manSetup( app_name, i, options );
         
 	}
 	else
