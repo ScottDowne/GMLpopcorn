@@ -21,6 +21,7 @@
      */
     _setup : function( options ) {
 
+      var self = this;
       
 
       // create a canvas to put in the target div
@@ -46,6 +47,13 @@
         }
         clearInterval(readyCheck);
         Popcorn.getScript( "http://000000book.com/data/" + options.gmltag + ".json?callback=load_gml" );
+
+        self.video.addEventListener( "pause", function() {
+          Processing.getInstanceById( 'canvas' + options.gmltag ).noLoop();
+        }, false );
+        self.video.addEventListener( "play", function() {
+          Processing.getInstanceById( 'canvas' + options.gmltag ).loop();
+        }, false );
 
 
       }, 5);
