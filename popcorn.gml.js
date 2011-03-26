@@ -48,12 +48,12 @@
         clearInterval(readyCheck);
         Popcorn.getScript( "http://000000book.com/data/" + options.gmltag + ".json?callback=load_gml" );
 
-        self.video.addEventListener( "pause", function() {
+        /*self.video.addEventListener( "pause", function() {
           Processing.getInstanceById( 'canvas' + options.gmltag ).noLoop();
         }, false );
         self.video.addEventListener( "play", function() {
           Processing.getInstanceById( 'canvas' + options.gmltag ).loop();
-        }, false );
+        }, false );*/
 
 
       }, 5);
