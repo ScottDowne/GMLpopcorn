@@ -29,7 +29,13 @@
       options.container.style.display = "none";
       options.container.setAttribute( 'id','canvas' + options.gmltag );
 
+      options.title = document.createElement( 'div' );
+      options.title.style.display = "none";
+      options.title.innerHTML = "#" + options.gmltag;
+      
+
       if ( document.getElementById( options.target ) ) {
+        document.getElementById( options.target ).appendChild( options.title );
         document.getElementById( options.target ).appendChild( options.container );
       }
 
@@ -49,12 +55,14 @@
     start: function( event, options ){
       Processing.getInstanceById( 'canvas' + options.gmltag ).loop();
       options.container.style.display = "inline";
+      options.title.style.display = "inline";
     },
     /**
      */
     end: function( event, options ){
       Processing.getInstanceById( 'canvas' + options.gmltag ).noLoop();
       options.container.style.display = "none";
+      options.title.style.display = "none";
     }
      
   });
