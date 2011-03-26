@@ -32,6 +32,8 @@
 
       options.title = document.createElement( 'div' );
       options.title.style.display = "none";
+      options.title.style.color = "white";
+      
       options.title.innerHTML = "#" + options.gmltag;
       
 
@@ -62,8 +64,8 @@
      */
     start: function( event, options ){
       Processing.getInstanceById( 'canvas' + options.gmltag ).loop();
-      options.container.style.display = "inline";
-      options.title.style.display = "inline";
+      options.container.style.display = "block";
+      options.title.style.display = "block";
     },
     /**
      */

@@ -3,7 +3,7 @@
   <head>
   	<meta charset="utf-8">
   	<title>GML + Popcorn.js</title>
- 	  <!--<link href="style.css" rel="stylesheet" type="text/css" />-->
+ 	  <link href="style.css" rel="stylesheet" type="text/css" />
  	  <!--<script src="video.js" type="text/javascript" charset="utf-8"></script>-->
  	  <script src="popcorn.js" type="text/javascript" charset="utf-8"></script>
 
@@ -124,20 +124,23 @@
 </head>
 
 <body>
+  <div id="content">
+  <div id="leftcontent">
 
-
-
-    <video id="video" width="540" height="360" controls="controls" preload="auto">
+    </br>
+    <video id="video" height="500" controls="controls" preload="auto">
 
       <source src="42296985.webm">
       <source src="42296985.theora.ogv" type='video/ogg; codecs="theora, vorbis"' />
       
     </video> 
+  </div>
+  <div id="rightcontent">
 
-
-    <div class="content" id="gmldiv"></div> 
-
-  </body>
+    <div id="gmldiv"></div> 
+  </div>
+  </div>
+</body>
 </html>
 
 
