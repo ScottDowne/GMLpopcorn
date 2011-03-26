@@ -18,6 +18,16 @@ __          __   _                          _
 
 function cutHex(h){ return (h.charAt(0)=="#") ? h.substring(1,7) : h; }
 
+var ajax = function ajax(url) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", url, false);
+    xhr.setRequestHeader("If-Modified-Since", "Fri, 1 Jan 1960 00:00:00 GMT");
+    xhr.send(null);
+    // failed request?
+    if (xhr.status !== 200 && xhr.status !== 0) { throw ("XMLHttpRequest failed, status code " + xhr.status); }
+    return xhr.responseText;
+};
+
 function hex2rgb2(hexcolor)
 {
   R = parseInt((cutHex(hexcolor)).substring(0,2),16);
@@ -79,7 +89,7 @@ function load_gml(data)
 
     var app_name = data.gml.tag.header  &&  data.gml.tag.header.client  &&  data.gml.tag.header.client.name;
 
-		document.getElementById('sketch'+i).innerHTML = " \
+		document.getElementById('sketch'+i).innerHTML = ajax("gmlplayer.js");/*" \
 		void setup() { \
 		  size(600, 500); \
 		  frameRate(30); \
@@ -118,7 +128,7 @@ function load_gml(data)
       var colors = ['255','255','255']; \
 		  stroke(colors[0],colors[1],colors[2]); \
 		  line(prev.x*width, prev.y*height, pt.x*width, pt.y*height); \
-		}";
+		}";*/
 		
 		//var canvas 	= document.getElementById('canvas' + i); // single canvas for every tag
 		var canvas 	= document.getElementById( 'canvas' + data.id ); // one canvas for all tags
@@ -126,6 +136,7 @@ function load_gml(data)
 
 		// draw sketch on canvas
 		new Processing(canvas, sketch);
+    //Processing.getInstanceById( 'canvas' + data.id ).manSetup( app_name, i );
         
 	}
 	else
