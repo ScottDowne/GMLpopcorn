@@ -3,7 +3,7 @@
   <head>
   	<meta charset="utf-8">
   	<title>GML + Popcorn.js</title>
- 	  <link href="style.css" rel="stylesheet" type="text/css" />
+ 	  <link onclick="seekTo('00:25.083')"  href="style.css" rel="stylesheet" type="text/css" />
  	  <!--<script src="video.js" type="text/javascript" charset="utf-8"></script>-->
  	  <script src="popcorn.js" type="text/javascript" charset="utf-8"></script>
 
@@ -126,20 +126,68 @@
 
 <body>
   <div id="content">
-  <div id="leftcontent">
+    <div id="leftcontent">
 
-    </br>
-    <video id="video" height="500" controls="controls" preload="auto">
+      <br/>
+      <video id="video" height="250" controls="controls" preload="auto">
 
-      <source src="42296985.webm">
-      <source src="42296985.theora.ogv" type='video/ogg; codecs="theora, vorbis"' />
+        <source src="42296985.webm">
+        <source src="42296985.theora.ogv" type='video/ogg; codecs="theora, vorbis"' />
       
-    </video> 
-  </div>
-  <div id="rightcontent">
+      </video> 
+<script>
+var video = document.getElementById( "video" ),
 
-    <div id="gmldiv"></div> 
-  </div>
+    toSeconds = function(time) {
+      var t = time.split(":");
+      if (t.length === 1) {
+        return parseFloat(t[0], 10);
+      } else if (t.length === 2) {
+        return parseInt(t[0] * 60, 10) + parseFloat(t[1], 10);
+      }
+    },
+
+    seekTo = function( time ) {
+      video.currentTime = toSeconds( time );
+    };
+
+</script>
+    <div id="footnotediv">
+<a onclick="seekTo('00:25.083')"  href="#">00:25.083</a>    <a target="_blank" href="http://vimeo.com/8072596">http://vimeo.com/8072596</a><br/>
+<a onclick="seekTo('00:35.497')"  href="#">00:35.497</a>    <a target="_blank" href="http://vimeo.com/8072596">http://vimeo.com/8072596</a><br/>
+<a onclick="seekTo('01:04.961')"  href="#">01:04.961</a>    <a target="_blank" href="http://www.eyewriter.org/">http://www.eyewriter.org/</a><br/>
+<a onclick="seekTo('01:08.414')"  href="#">01:08.414</a>    <a target="_blank" href="http://vimeo.com/6376466">http://vimeo.com/6376466</a><br/>
+<a onclick="seekTo( '01:14.881' )"  href="#">01:14.881</a>    <a target="_blank" href="http://www.alshopefoundation.org/">http://www.alshopefoundation.org/</a><br/>
+<a onclick="seekTo('01:25.632')"  href="#">01:25.632</a>    <a target="_blank" href="http://vimeo.com/6376466">http://vimeo.com/6376466</a><br/>
+<a onclick="seekTo('01:33.671')"  href="#">01:33.671</a>    <a target="_blank" href="http://vimeo.com/6376466">http://vimeo.com/6376466</a><br/>
+<a onclick="seekTo('01:50.258')"  href="#">01:50.258</a>    <a target="_blank" href="http://vimeo.com/13327615">http://vimeo.com/13327615</a><br/>
+<a onclick="seekTo('02:16:244')"  href="#">02:16:244</a>    <a target="_blank" href="http://vimeo.com/6376466">http://vimeo.com/6376466</a><br/>
+<a onclick="seekTo('03:05.682')"  href="#">03:05.682</a>    <a target="_blank" href="http://www.graffitianalysis.com/">http://www.graffitianalysis.com/</a><br/>
+<a onclick="seekTo('03:14.575')"  href="#">03:14.575</a>    <a target="_blank" href="http://www.graffitianalysis.com/downloads/">http://www.graffitianalysis.com/downloads/</a><br/>
+<a onclick="seekTo('04:08.788')"  href="#">04:08.788</a>    <a target="_blank" href="http://www.graffitianalysis.com/how-to/">http://www.graffitianalysis.com/how-to/</a><br/>
+<a onclick="seekTo('04:11.975')"  href="#">04:11.975</a>    <a target="_blank" href="http://vimeo.com/8438989">http://vimeo.com/8438989</a><br/>
+<a onclick="seekTo('04:59.923')"  href="#">04:59.923</a>    <a target="_blank" href="http://vimeo.com/21270066">http://vimeo.com/21270066</a><br/>
+<a onclick="seekTo('05:33.692')"  href="#">05:33.692</a>    <a target="_blank" href="http://vimeo.com/8438989">http://vimeo.com/8438989</a><br/>
+<a onclick="seekTo('08:37.616')"  href="#">08:37.616</a>    <a target="_blank" href="http://vimeo.com/14098101">http://vimeo.com/14098101</a><br/>
+<a onclick="seekTo('09:54.756')"  href="#">09:54.756</a>    <a target="_blank" href="http://vimeo.com/14098101">http://vimeo.com/14098101</a><br/>
+<a onclick="seekTo('10:31.645')"  href="#">10:31.645</a>    <a target="_blank" href="http://vimeo.com/13327615">http://vimeo.com/13327615</a><br/>
+<a onclick="seekTo('11:33.867')"  href="#">11:33.867</a>    <a target="_blank" href="http://vimeo.com/17264689">http://vimeo.com/17264689</a><br/>
+<a onclick="seekTo('11:39.921')"  href="#">11:39.921</a>    <a target="_blank" href="http://www.graffitimarkuplanguage.com/">http://www.graffitimarkuplanguage.com/</a><br/>
+<a onclick="seekTo('12:03.015')"  href="#">12:03.015</a>    <a target="_blank" href="http://www.graffitimarkuplanguage.com/robotic-graffiti-tagger/">http://www.graffitimarkuplanguage.com/robotic-graffiti-tagger/</a><br/>
+<a onclick="seekTo('12:28.420')"  href="#">12:28.420</a>    <a target="_blank" href="http://vimeo.com/8691659">http://vimeo.com/8691659</a><br/>
+<a onclick="seekTo('12:55.348')"  href="#">12:55.348</a>    <a target="_blank" href="http://vimeo.com/14098101">http://vimeo.com/14098101</a><br/>
+<a onclick="seekTo('13:02.481')"  href="#">13:02.481</a>    <a target="_blank" href="http://www.graffitimarkuplanguage.com/obama-gml-playa-post/">http://www.graffitimarkuplanguage.com/obama-gml-playa-post/</a><br/>
+<a onclick="seekTo('13:16.579')"  href="#">13:16.579</a>    <a target="_blank" href="http://vimeo.com/21270066">http://vimeo.com/21270066</a><br/>
+<a onclick="seekTo('13:34.480')"  href="#">13:34.480</a>    (no known online source; from Evan's personal archive)<br/>
+<a onclick="seekTo('14:11.210')"  href="#">14:11.210</a>    <a target="_blank" href="http://vimeo.com/13327615">http://vimeo.com/13327615</a><br/>
+<a onclick="seekTo('14:23.588')"  href="#">14:23.588</a>    <a target="_blank" href="http://000000book.com/">http://000000book.com/</a><br/>
+<a onclick="seekTo('15:11.481')"  href="#">15:11.481</a>    <a target="_blank" href="http://vimeo.com/14098101">http://vimeo.com/14098101</a><br/>
+    </div>
+    </div>
+    <div id="rightcontent">
+
+      <div id="gmldiv"></div> 
+    </div>
   </div>
 </body>
 </html>

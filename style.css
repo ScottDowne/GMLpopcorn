@@ -3,7 +3,7 @@ body {
 }
 
 #content {
-    float: right;
+    
 }
 #leftcontent {
   float: left;
@@ -11,4 +11,7 @@ body {
 #rightcontent {
   width: 600px;
   float: left;
+}
+#footnotediv {
+  color: white;
 }
