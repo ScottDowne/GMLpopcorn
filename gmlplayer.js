@@ -7,6 +7,8 @@ var options = {};
 var video = document.getElementById("video");
 var x, y, rotation = false; 
 var dur;
+var drawingDur;
+
 
 // Setup the Processing Canvas
 void setup() {
@@ -22,6 +24,12 @@ void manSetup(app_nameNew, indexNew, optionsIncoming) {
 //	 console.log(options.end);
 	
 	dur = (options.end - options.start);
+	if (options.endDrawing != null){
+		//console.log("yay");
+		drawingDur = (options.endDrawing - options.start);
+	} else {
+		drawingDur = dur;
+	}
 //	console.log(dur);
 	
     app_name = app_nameNew;
@@ -43,17 +51,17 @@ void manSetup(app_nameNew, indexNew, optionsIncoming) {
 }
 
 
-function drawLine(x,y,x2,y2) {
+function drawLine(x,y,x2,y2, alpha) {
     _x = rotation ? y*height : x*width;
     _y = rotation ? width-(x*width) : y*height;
     _x2 = rotation ? y2 * height : x2*width;
     _y2 = rotation ? width - (x2 * width) : y2*height;
-    stroke(0);
-    strokeWeight(8);
+    stroke(0,0,0,255 * (alpha/255.0));
+    strokeWeight(num);
     strokeCap(SQUARE);
     line(_x,_y,_x2,_y2);
-    stroke(255);
-    strokeWeight(4);
+    stroke(alpha, alpha, alpha);
+    strokeWeight(num-2.5);
     strokeCap(ROUND);
     line(_x,_y,_x2,_y2);
     //ol = { x: _x, y: _y, x2: _x2, y2: _y2 };
@@ -65,17 +73,30 @@ void draw() {
 	
 	//var dur = (options.end - options.start);
     
+	var alpha = 255;
 
     if (doneSetup) {
         
 		var pct = (video.currentTime - options.start) / dur;
+		var drawingPct = (video.currentTime - options.start) / drawingDur;
+		
+		if (options.endDrawing != null){
+			// how done are we?
+			if (video.currentTime >= options.endDrawing){
+					
+				alpha = (1 - ((video.currentTime - options.endDrawing) / (options.end - options.endDrawing)))*255;
+			}
+		}
+	
+		if (drawingPct > 1) drawingPct = 1;
+		
 		//console.log( (video.currentTime - options.start));
 	  	//console.log(pct);
 
  		background(0);
 		var nPoints = data_object["pts" + index].length;
 		if (pct < 0 || pct > 1) return;
-		var howMany = pct * nPoints;
+		var howMany = drawingPct * nPoints;
 	    for (var i = 0; i < howMany; i++){
 			if (i > 0){
 			 prev = data_object["pts" + index][i - 1];
@@ -97,7 +118,9 @@ void draw() {
 	        strokeWeight(num);
 	        var colors = ['255', '255', '255'];
 	        stroke(colors[0], colors[1], colors[2]);
-	        line(prev.x * width, prev.y * height, pt.x * width, pt.y * height);
+		//line(prev.x, prev.y , pt.x, pt.y);
+
+	        drawLine(prev.x, prev.y , pt.x, pt.y, alpha);
 		}
 	}
 }
