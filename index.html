@@ -115,15 +115,23 @@
 </head>
 
 <body>
-  <div id="content">
-    <div id="leftcontent">
+      <video id="video" controls="controls" preload="auto">
 
-      <br/>
-      <video id="video" height="250" controls="controls" preload="auto">
+        <source
+          src="http://videos.mozilla.org/serv/webmademovies/gml.mp4"
+          type='video/mp4; codecs="avc1, mp4a"'>
 
-        <source src="http://videos.mozilla.org/serv/webmademovies/gml.webm">
-      
-      </video> 
+        <source
+          src="http://videos.mozilla.org/serv/webmademovies/gml.webm"
+          type='video/webm; codecs="vp8, vorbis"'>
+
+        <source
+          src="http://videos.mozilla.org/serv/webmademovies/gml.ogv"
+          type='video/webm; codecs="vp8, vorbis"'>
+
+        <p>Your user agent does not support the HTML5 Video element.</p>
+      </video>
+      <div id="gmldiv"></div>
 <script>
 var video = document.getElementById( "video" ),
 
@@ -141,7 +149,8 @@ var video = document.getElementById( "video" ),
     };
 
 </script>
-    <div id="footnotediv">
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<div style="position: absolute; right: 50%; top: 380px;">
 <a onclick="seekTo('00:25.083')" href="#">00:25.083</a> <a target="_blank" href="http://vimeo.com/8072596">http://vimeo.com/8072596</a><br/>
 <a onclick="seekTo('00:35.497')" href="#">00:35.497</a> <a target="_blank" href="http://vimeo.com/8072596">http://vimeo.com/8072596</a><br/>
 <a onclick="seekTo('01:04.961')" href="#">01:04.961</a> <a target="_blank" href="http://www.eyewriter.org/">http://www.eyewriter.org/</a><br/>
@@ -171,13 +180,11 @@ var video = document.getElementById( "video" ),
 <a onclick="seekTo('14:11.210')" href="#">14:11.210</a> <a target="_blank" href="http://vimeo.com/13327615">http://vimeo.com/13327615</a><br/>
 <a onclick="seekTo('14:23.588')" href="#">14:23.588</a> <a target="_blank" href="http://000000book.com/">http://000000book.com/</a><br/>
 <a onclick="seekTo('15:11.481')" href="#">15:11.481</a> <a target="_blank" href="http://vimeo.com/14098101">http://vimeo.com/14098101</a><br/>
-    </div>
-    </div>
-    <div id="rightcontent">
+</div>
 
-      <div id="gmldiv"></div> 
-    </div>
-  </div>
+  <!--<div style="width:1000px">
+    <div id="gmldiv" style="position:absolute;left:700px;top:20px;"></div>
+  </div>-->
 </body>
 </html>
 

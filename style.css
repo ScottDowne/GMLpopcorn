@@ -1,17 +1,27 @@
-body {
+html {
+  background-image: url('gml.png');
+  background-position: 0px 300px;
   background-color: black;
+  background-repeat: no-repeat;
+  font-family: fface;
+  color: white;
 }
 
-#content {
-    
-}
-#leftcontent {
-  float: left;
-}
-#rightcontent {
-  width: 600px;
-  float: left;
-}
-#footnotediv {
+a:link, a:active { 
   color: white;
+}
+a:visited, a:hover {
+  color: grey;
+}
+
+#video {
+  position: absolute;
+  width: 640px;
+  right: 50%;
+}
+
+#gmldiv {
+  position: absolute;
+  width: 640px;
+  left: 50%;
 }

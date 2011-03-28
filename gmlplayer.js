@@ -10,6 +10,7 @@ var ready = false;
 var play = function(){};
 var dur = 0;
 var options = {};
+var video = document.getElementById("video");
 
 // empty on purpose
 void setup() {}
@@ -20,7 +21,7 @@ void draw() {
 
 void construct( data, options ) {
 
-  size(800,580);
+  size(640,360);
   frameRate(60);
   smooth();
   reset();
