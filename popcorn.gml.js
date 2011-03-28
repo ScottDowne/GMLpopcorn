@@ -48,8 +48,8 @@
       
 
       if ( document.getElementById( options.target ) ) {
-        document.getElementById( options.target ).appendChild( options.title );
         document.getElementById( options.target ).appendChild( options.container );
+        document.getElementById( options.target ).appendChild( options.title );
       }
 
 

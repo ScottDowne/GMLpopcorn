@@ -21,7 +21,7 @@ void draw() {
 
 void construct( data, options ) {
 
-  size(640,640);
+  size(640,440);
   frameRate(60);
   smooth();
   reset();
