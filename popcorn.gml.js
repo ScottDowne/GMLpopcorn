@@ -2,14 +2,21 @@
 
 (function (Popcorn) {
 
-  var processingLoaded = false,
-      gmlPlayerLoaded  = false;
+  var processingLoaded = false;
 
-  Popcorn.getScript( "canvasplayer.js", function() {
-    gmlPlayerLoaded = true;
-  });
+  var ajax = function ajax(url) {
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", url, false);
+    xhr.setRequestHeader("If-Modified-Since", "Fri, 1 Jan 1960 00:00:00 GMT");
+    xhr.send(null);
+    // failed request?
+    if (xhr.status !== 200 && xhr.status !== 0) { throw ("XMLHttpRequest failed, status code " + xhr.status); }
+    return xhr.responseText;
+  };
 
   Popcorn.getScript( "http://processingjs.org/content/download/processing-js-1.1.0/processing-1.1.0.js", function() {
+
     processingLoaded = true;
   });
   
@@ -23,12 +30,12 @@
 
       var self = this;
       
-
+      options.endDrawing = options.endDrawing || options.end;
       // create a canvas to put in the target div
       options.container = document.createElement( 'canvas' );
 
       options.container.style.display = "none";
-      options.container.setAttribute( 'id','canvas' + options.gmltag );
+      options.container.setAttribute( 'id', 'canvas' + options.gmltag );
 
       options.title = document.createElement( 'div' );
       options.title.style.display = "none";
@@ -42,42 +49,41 @@
         document.getElementById( options.target ).appendChild( options.container );
       }
 
+
       // makes sure both processing.js and the gml player are loaded
       var readyCheck = setInterval(function() {
-        if ( !processingLoaded || !gmlPlayerLoaded ) {
+
+        if ( !processingLoaded ) {
+
           return;
         }
+
         clearInterval(readyCheck);
         Popcorn.getJSONP( "http://000000book.com/data/" + options.gmltag + ".json?callback=", function( data ) {
-          load_gml( data, options );
+
+          new Processing( options.container, ajax( "gmlplayer.js" ) );
+          options.pjsInstance = Processing.getInstanceById( 'canvas' + data.id );
+          options.pjsInstance.construct( data, options );
         }, false );
-
-        /*self.video.addEventListener( "pause", function() {
-          Processing.getInstanceById( 'canvas' + options.gmltag ).noLoop();
-        }, false );
-        self.video.addEventListener( "play", function() {
-          Processing.getInstanceById( 'canvas' + options.gmltag ).loop();
-        }, false );*/
-
-
       }, 5);
     },
     /**
      */
-    start: function( event, options ){
-      Processing.getInstanceById( 'canvas' + options.gmltag ).loop();
+    start: function( event, options ) {
+
+      options.pjsInstance && options.pjsInstance.loop();
       options.container.style.display = "block";
       options.title.style.display = "block";
     },
     /**
      */
-    end: function( event, options ){
-      Processing.getInstanceById( 'canvas' + options.gmltag ).noLoop();
-      options.container.style.display = "none";
-      options.title.style.display = "none";
-    }
-     
-  });
+    end: function( event, options ) {
 
+      options.pjsInstance && options.pjsInstance.noLoop();
+      //options.container.style.display = "none";
+      $(options.container).fadeOut( "slow" );
+      $(options.title).fadeOut( "slow" );
+    }
+  });
 })( Popcorn );
 
