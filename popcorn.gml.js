@@ -80,7 +80,6 @@
     end: function( event, options ) {
 
       options.pjsInstance && options.pjsInstance.noLoop();
-      //options.container.style.display = "none";
       $(options.container).fadeOut( "slow" );
       $(options.title).fadeOut( "slow" );
     }

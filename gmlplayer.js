@@ -89,14 +89,13 @@ function seek( point ) {
         _stroke = strokes.length ? strokes[onStroke] : strokes;
         pt = _stroke.pt[onPt];
         var p = onPt;
-        //console.log(point + " : " + drawPoint);
         if (x !== null ) drawLine(x,y,pt.x,pt.y);
-        if (onPt) {
+        /*if (onPt) {
             if (++onPt >= _stroke.pt.length) {
                 //if (!strokes.length || ++onStroke >= strokes.length) return reset();
                 //onPt = 0;
             }
-        }
+        }*/
         x = pt.x;
         y = pt.y;
         if (onPt==p) onPt++; //went back to 0

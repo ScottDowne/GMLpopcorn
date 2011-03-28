@@ -18,7 +18,7 @@
       .play() 
       .gml({
         start: 35, // seconds
-		endDrawing: 44,
+		    endDrawing: 44,
         end: 46, // seconds
         gmltag: '29582',
         target: 'gmldiv'
@@ -115,23 +115,25 @@
 </head>
 
 <body>
-      <video id="video" controls="controls" preload="auto">
+  <video id="video" controls="controls" preload="auto">
 
-        <source
-          src="http://videos.mozilla.org/serv/webmademovies/gml.mp4"
-          type='video/mp4; codecs="avc1, mp4a"'>
+    <source
+      src="http://videos.mozilla.org/serv/webmademovies/gml.mp4"
+      type='video/mp4; codecs="avc1, mp4a"'>
 
-        <source
-          src="http://videos.mozilla.org/serv/webmademovies/gml.webm"
-          type='video/webm; codecs="vp8, vorbis"'>
+    <source
+      src="http://videos.mozilla.org/serv/webmademovies/gml.webm"
+      type='video/webm; codecs="vp8, vorbis"'>
 
-        <source
-          src="http://videos.mozilla.org/serv/webmademovies/gml.ogv"
-          type='video/webm; codecs="vp8, vorbis"'>
+    <source
+      src="http://videos.mozilla.org/serv/webmademovies/gml.ogv"
+      type='video/webm; codecs="vp8, vorbis"'>
 
-        <p>Your user agent does not support the HTML5 Video element.</p>
-      </video>
-      <div id="gmldiv"></div>
+    <p>Your user agent does not support the HTML5 Video element.</p>
+  </video>
+  <div id="gmldiv"></div>
+
+<!-- everything after this point is bad, and needs a clean up -->
 <script>
 var video = document.getElementById( "video" ),
 
