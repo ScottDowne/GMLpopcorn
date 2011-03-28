@@ -37,16 +37,19 @@
       options.container.style.display = "none";
       options.container.setAttribute( 'id', 'canvas' + options.gmltag );
 
-      options.title = document.createElement( 'div' );
+      options.title = document.createElement( 'a' );
       options.title.style.display = "none";
       options.title.style.color = "white";
+      options.title.href = "http://000000book.com/data/" + options.gmltag;
+      options.title.addEventListener( "click", function() {document.getElementById("video").pause();}, false );
+      options.title.target = "_blank";
       
       options.title.innerHTML = "#" + options.gmltag;
       
 
       if ( document.getElementById( options.target ) ) {
-        document.getElementById( options.target ).appendChild( options.container );
         document.getElementById( options.target ).appendChild( options.title );
+        document.getElementById( options.target ).appendChild( options.container );
       }
 
 

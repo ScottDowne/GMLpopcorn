@@ -7,21 +7,28 @@ html {
   color: white;
 }
 
-a:link, a:active { 
+a:link, a:active, a:visited { 
   color: white;
 }
-a:visited, a:hover {
+a:hover {
   color: grey;
 }
 
 #video {
   position: absolute;
   width: 640px;
-  right: 50%;
+  right: 35%;
 }
 
 #gmldiv {
   position: absolute;
   width: 640px;
-  left: 50%;
+  left: 65%;
+}
+
+#chapterdiv {
+  position: absolute;
+  width: 640px;
+  top: 380px;
+  right: 35%;
 }
