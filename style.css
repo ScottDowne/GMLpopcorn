@@ -1,6 +1,6 @@
 html {
   background-image: url('gml.png');
-  background-position: 0px 300px;
+  background-position: -45px 400px;
   background-color: black;
   background-repeat: no-repeat;
   font-family: fface;
@@ -16,22 +16,47 @@ a:hover {
 
 #video {
   position: absolute;
+  top: 66px;
+  right: 50%;
+  margin: 5px;
   width: 640px;
-  right: 35%;
+  height: 360px;
+  border-style:solid;
+  border-width:5px;
 }
 
 #gmldiv {
   position: absolute;
-  width: 640px;
+  top: 8px;
   left: 50%;
-  margin-left: -320px;
-  top: 320px;
-  z-index: -1;
+  margin: 5px;
+  width: 640px;
+  height: 660px;
+  background-color: black;
+  border-style:solid;
+  border-width:5px;
 }
 
 #chapterdiv {
   position: absolute;
+  top: 8px;
+  right: 50%;
+  margin: 5px;
   width: 640px;
-  top: 380px;
-  right: 35%;
+  background-color: black;
+  border-style:solid;
+  border-width:5px;
+  text-align: center;
+}
+
+#chapters {
+  position: absolute;
+  top: 448px;
+  right: 50%;
+  margin: 5px;
+  width: 640px;
+  background-color: black;
+  border-style:solid;
+  border-width:5px;
+  text-align: center;
 }

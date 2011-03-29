@@ -6,6 +6,8 @@
  	  <link href="style.css" rel="stylesheet" type="text/css" />
  	  <!--<script src="video.js" type="text/javascript" charset="utf-8"></script>-->
     <script src="http://code.jquery.com/jquery-1.5.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css"/>
  	  <script src="popcorn.js" type="text/javascript" charset="utf-8"></script>
 
     <script src="popcorn.gml.js"></script>
@@ -13,6 +15,15 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
+      $('#video')
+        .draggable();
+      $('#chapters')
+        .draggable();
+      $('#chapterdiv')
+        .draggable();
+      $('#gmldiv')
+        .draggable();
+
       var p = Popcorn('#video')
       .play() 
       .gml({
@@ -219,12 +230,14 @@
 
   }, false);
 
-
   </script>
 
 </head>
 
 <body>
+  <div id="chapters"></div>
+  <div id="chapterdiv"></div>
+  <div id="gmldiv"></div>
   <video id="video" controls="controls" preload="auto">
 
     <source
@@ -241,10 +254,6 @@
 
     <p>Your user agent does not support the HTML5 Video element.</p>
   </video>
-  <div id="chapterdiv"></div>
-  <div id="gmldiv"></div>
-
-  <div id="chapters"></div>
 
 
 
